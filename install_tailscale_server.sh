@@ -259,7 +259,15 @@ bring_up_tailscale() {
   if [[ ${#up_args[@]} -eq 0 ]]; then
     log "Ejecutando: tailscale up"
   else
-    log "Ejecutando: tailscale up ${up_args[*]}"
+    local redacted_args=()
+    for arg in "${up_args[@]}"; do
+      if [[ "$arg" == --auth-key=* ]]; then
+        redacted_args+=("--auth-key=REDACTED")
+      else
+        redacted_args+=("$arg")
+      fi
+    done
+    log "Ejecutando: tailscale up ${redacted_args[*]}"
   fi
 
   local up_output=""
