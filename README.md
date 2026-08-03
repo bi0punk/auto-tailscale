@@ -3,7 +3,7 @@
 One-shot installer script for Tailscale on Linux. Handles installation, authentication (auth key or web), SSH enablement, and route acceptance.
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![CI](https://github.com/tu-usuario/auto-tailscale/actions/workflows/ci.yml/badge.svg)](https://github.com/tu-usuario/auto-tailscale/actions/workflows/ci.yml)
+[![CI](https://github.com/bi0punk/auto-tailscale/actions/workflows/ci.yml/badge.svg)](https://github.com/bi0punk/auto-tailscale/actions/workflows/ci.yml)
 
 ## Tabla de Contenidos
 
@@ -52,7 +52,7 @@ auto-tailscale/
 ## Instalación
 
 ```bash
-git clone https://github.com/tu-usuario/auto-tailscale.git
+git clone https://github.com/bi0punk/auto-tailscale.git
 cd auto-tailscale
 ```
 
