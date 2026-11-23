@@ -1,6 +1,6 @@
 # auto-tailscale
 
-Instalador one-shot de Tailscale para Linux en Bash: instala el paquete del gestor de la distribución, habilita el servicio `tailscaled`, autentica con auth key o flujo web, y opcionalmente habilita Tailscale SSH y aceptación de rutas.
+Instalador one-shot de Tailscale para Linux en Bash: instala Tailscale con el script oficial, habilita el servicio `tailscaled`, autentica con auth key o flujo web, y opcionalmente habilita Tailscale SSH y aceptación de rutas.
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/bi0punk/auto-tailscale/actions/workflows/ci.yml/badge.svg)](https://github.com/bi0punk/auto-tailscale/actions/workflows/ci.yml)
@@ -20,7 +20,7 @@ Instalador one-shot de Tailscale para Linux en Bash: instala el paquete del gest
 
 ## Características
 
-- Soporte multi-distribución (apt, dnf, pacman, apk).
+- Instalación mediante el script oficial de Tailscale (compatible con las principales distribuciones Linux).
 - Autenticación por auth key (`TS_AUTHKEY`) o flujo web interactivo.
 - Habilitación opcional de Tailscale SSH (`--ssh`).
 - Aceptación de rutas (`--accept-routes`).
@@ -33,7 +33,7 @@ Instalador one-shot de Tailscale para Linux en Bash: instala el paquete del gest
 ```mermaid
 flowchart TD
   A[install_tailscale_server.sh<br/>parse_args] --> B[require_root + check_os]
-  B --> C[Instalar tailscale<br/>apt / dnf / pacman / apk]
+  B --> C[Instalar tailscale<br/>script oficial install.sh]
   C --> D[systemctl enable --now tailscaled]
   D --> E[tailscale up]
   E --> F{TS_AUTHKEY?}
@@ -111,7 +111,7 @@ No hay suite de tests local. CI: GitHub Actions (`.github/workflows/ci.yml`) eje
 - [x] Instalación multi-distribución + alta automática o web
 - [x] Soporte SSH y `--accept-routes`
 - [ ] Soporte para macOS
-- [ ] Integración con systemd para auto-arranque
+- [x] Auto-arranque vía systemd (`systemctl enable --now tailscaled`)
 - [ ] Modo headless sin prompts interactivos
 - [ ] Tests de integración en contenedores
 
